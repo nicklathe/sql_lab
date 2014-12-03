@@ -39,4 +39,9 @@ To get started we'll need to import the booktown.sql file.
 	* ISBN number
 	* Publisher name
 	* Retail price
-	
+
+* Find all shipments sorted by ship date display ONLY:
+	* Customer first name
+	* Customer last name
+	* ship date
+	* book title
