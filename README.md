@@ -24,15 +24,19 @@ To get started we'll need to import the booktown.sql file.
 
 1. Find all books about Computers list ONLY book title
 
-
 * Find all books and display ONLY
 	* Book title
 	* Author's first name
 	* Author's last name
 	* Book subject
 
+* Find all books that are listed in the stock table
+	* Sort them by retail price (most expensive first)
+	* Display ONLY: title and price
+
 * Find the book "Dune" and display ONLY
 	* Book title
 	* ISBN number
 	* Publisher name
 	* Retail price
+	
