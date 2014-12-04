@@ -16,11 +16,11 @@ Provide the follow sql statements below each question.
 ##Order
 1. Find all subjects sorted by subject
 
-	SELECT * FROM subjects ORDER BY subjects;
+	SELECT subject FROM subjects ORDER BY subjects ASC;
 
 2. Find all subjects sorted by location
 
-	SELECT * FROM subjects ORDER BY location;
+	SELECT location FROM subjects ORDER BY location;
 
 
 
@@ -41,7 +41,7 @@ Provide the follow sql statements below each question.
 
 1. Find all books about Computers list ONLY book title
 
-	SELECT books.title FROM books JOIN subjects ON subjects.id = books.subject_id WHERE subjects.id = 4;
+	SELECT books.title FROM books JOIN subjects ON books.subject_id = subjects.id WHERE subjects.subject = 'Computers';
 
 * Find all books and display ONLY
 	* Book title
@@ -49,13 +49,13 @@ Provide the follow sql statements below each question.
 	* Author's last name
 	* Book subject
 
-	SELECT books.title, authors.first_name, authors.last_name, subject FROM authors JOIN books ON authors.id = books.author_id JOIN subjects ON subjects.id = books.subject_id;
+	SELECT books.title, authors.first_name, authors.last_name, subjects.subject FROM books JOIN authors ON books.author_id = authors.id JOIN subjects ON subjects.id = books.subject_id;
 
 * Find all books that are listed in the stock table 
 	* Sort them by retail price (most expensive first
 	* Display ONLY: title and price
 	
-	SELECT books.title, stock.retail FROM editions JOIN stock ON editions.isbn = stock.isbn JOIN books ON editions.book_id = books.id ORDER BY retail DESC;
+	SELECT books.title, stock.retail FROM books JOIN editions ON books.id = editions.book_id JOIN stock ON editions.isbn = stock.isbn ORDER BY retail DESC;
 
 * Find the book "Dune" and display ONLY
 	* Book title
@@ -63,7 +63,7 @@ Provide the follow sql statements below each question.
 	* Publisher name
 	* Retail price
 
-	SELECT books.title, editions.isbn, publishers.name, stock.retail FROM editions JOIN stock ON editions.isbn = stock.isbn JOIN books ON editions.book_id = books.id JOIN publishers ON editions.publisher_id = publishers.id WHERE title LIKE 'Dune';
+	SELECT books.title, editions.isbn, publishers.name, stock.retail FROM books JOIN editions ON books.id = editions.book_id JOIN publishers ON publishers.id = editions.publisher_id JOIN stock ON editions.isbn = stock.isbn WHERE title ILIKE 'Dune';
 
 * Find all shipments sorted by ship date display ONLY:
 	* Customer first name
@@ -71,7 +71,7 @@ Provide the follow sql statements below each question.
 	* ship date
 	* book title
 
-	SELECT customers.last_name, customers.first_name, shipments.ship_date, books.title FROM books JOIN editions ON books.id = editions.book_id JOIN shipments ON editions.isbn = shipments.isbn JOIN customers ON shipments.customer_id = customers.id;
+	SELECT customers.first_name, customers.last_name, shipments.ship_date, books.title FROM books JOIN editions ON books.id = editions.book_id JOIN shipments ON shipments.isbn = editions.isbn JOIN customers ON shipments.customer_id = customers.id;
 
 
 
@@ -80,6 +80,6 @@ Provide the follow sql statements below each question.
 	* Book Author
 	* Edition Number
 
-	SELECT books.title, authors.first_name, authors.last_name, editions.edition FROM books JOIN editions ON books.id = editions.book_id JOIN authors ON authors.id = books.author_id WHERE editions.edition IN (2,3); 
+	SELECT books.title, authors.first_name, editions.edition FROM books JOIN authors ON books.author_id = authors.id JOIN editions ON books.id = editions.book_id WHERE editions.edition IN (2,3);
 
 
