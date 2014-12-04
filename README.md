@@ -1,5 +1,5 @@
 #SQL Lab
-====
+
 
 ##Getting Started
 
@@ -10,6 +10,9 @@ To get started we'll need to import the booktown.sql file.
 3. type `sql` to open your psql console
 4. type \list to ensure the booktown database was successfully completed
 
+##Instructions
+Provide the follow sql statements below each question.
+
 ##Order
 1. Find all subjects sorted by subject
 2. Find all subjects sorted by location
@@ -18,7 +21,6 @@ To get started we'll need to import the booktown.sql file.
 1. Find the book "Little Women"
 2. Find all books containing the word "Python"
 3. Find all subjects with the location "Main St" sort them by subject
-
 
 ##Joins
 
