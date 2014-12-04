@@ -45,3 +45,8 @@ To get started we'll need to import the booktown.sql file.
 	* Customer last name
 	* ship date
 	* book title
+
+* Find all books that have either a 2nd or 3rd edition associated to it display ONLY:
+	* Book title
+	* Book Author
+	* Edition Number
